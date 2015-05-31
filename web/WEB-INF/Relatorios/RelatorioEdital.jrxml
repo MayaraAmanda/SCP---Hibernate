@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioEdital" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ac3c7d02-ab6f-4d9c-be47-52e76bd3e980">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigoCampus" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     edital.`codigoEdital` AS edital_codigoEdital,
+     edital.`numeroEdital` AS edital_numeroEdital,
+     edital.`anoEdital` AS edital_anoEdital,
+     edital.`validadeEdital` AS edital_validadeEdital,
+     edital.`valorBolsa` AS edital_valorBolsa,
+     edital.`quantidadeBolsa` AS edital_quantidadeBolsa,
+     edital.`validadeBolsa` AS edital_validadeBolsa,
+     edital.`subareaconhecimento_codigo` AS edital_subareaconhecimento_codigo,
+     edital.`campus_codigo` AS edital_campus_codigo,
+     edital.`tipobolsa_codigo` AS edital_tipobolsa_codigo,
+     campus.`codigoCampus` AS campus_codigoCampus,
+     campus.`nomeCampus` AS campus_nomeCampus,
+     campus.`instituicao_codigo` AS campus_instituicao_codigo
+FROM
+     `campus` campus INNER JOIN `edital` edital ON campus.`codigoCampus` = edital.`campus_codigo`
+
+WHERE $P{codigoCampus} = campus.codigoCampus]]>
+	</queryString>
+	<field name="edital_codigoEdital" class="java.lang.Integer"/>
+	<field name="edital_numeroEdital" class="java.lang.Integer"/>
+	<field name="edital_anoEdital" class="java.lang.Integer"/>
+	<field name="edital_validadeEdital" class="java.lang.String"/>
+	<field name="edital_valorBolsa" class="java.lang.Float"/>
+	<field name="edital_quantidadeBolsa" class="java.lang.Integer"/>
+	<field name="edital_validadeBolsa" class="java.lang.String"/>
+	<field name="edital_subareaconhecimento_codigo" class="java.lang.Integer"/>
+	<field name="edital_campus_codigo" class="java.lang.Integer"/>
+	<field name="edital_tipobolsa_codigo" class="java.lang.Integer"/>
+	<field name="campus_codigoCampus" class="java.lang.Integer"/>
+	<field name="campus_nomeCampus" class="java.lang.String"/>
+	<field name="campus_instituicao_codigo" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="2bd1d55a-8cb3-402e-9c6e-1be41ad4ae17"/>
+				<staticText>
+					<reportElement x="20" y="20" width="375" height="43" forecolor="#FFFFFF" uuid="82f2a5e3-778f-4f83-af80-8a815682ee49"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sistema de Controle de Projetos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="53" width="180" height="20" forecolor="#FFFFFF" uuid="396625a5-42f5-4138-8e82-fe0299f2792e"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatorio Edital]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="61bd2eec-2796-4227-8d7d-298f76c36fcf"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2ded94a5-a2b6-4953-8424-40981653e658"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4eec5e70-c672-4d21-b74e-a32081ddaaab"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bbcd45da-eed8-404c-8fd8-4347a536f4b8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo Campus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="72d8d058-45d8-4932-b0d4-809381d2d070"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="cc0d3917-9802-44ea-b79d-0acd9745a539"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="7fa806f9-500e-490d-891b-34e5af72a3da"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edital_numeroEdital}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="28b9cfb1-d001-4663-b532-1377496b7fe9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edital_anoEdital}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="350bcaa0-63f2-4acb-a1e3-9bfb94c5b901"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus_codigoCampus}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="820d5f29-7523-4e22-94b1-b6f523e3e354"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus_nomeCampus}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="c1f46b8d-05ae-4c0e-941e-059caac3a6b8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="064eef7a-95f4-40ef-9cac-4098c78bb35f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="9b4c1008-4739-4f02-9bd3-2d4d3aac83d9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

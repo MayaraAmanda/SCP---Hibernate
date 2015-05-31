@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/SCP?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">usuario</property>
+    <property name="hibernate.connection.password">123</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    <mapping class="model.Bolsista" />
+    <mapping class="model.Campus"/>
+    <mapping class="model.Curso"/>
+    <mapping class="model.Edital"/>
+    <mapping class="model.Funcionario"/>
+    <mapping class="model.Instituicao"/>
+    <mapping class="model.Nucleo"/>
+    <mapping class="model.Orientador"/>
+    <mapping class="model.Pessoas"/>
+    <mapping class="model.Projeto"/>
+    <mapping class="model.SubArea"/>
+    <mapping class="model.Tipobolsa"/>
+    <mapping class="model.Tipocurso"/>
+   
+  </session-factory>
+</hibernate-configuration>

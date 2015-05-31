@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioProjeto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d7ea130f-fd91-48e6-b448-5cf96b6845e5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigoTipoBolsa" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     projeto.`codigoProjeto` AS projeto_codigoProjeto,
+     projeto.`nomeProjeto` AS projeto_nomeProjeto,
+     projeto.`cargaHoraria` AS projeto_cargaHoraria,
+     projeto.`palavrachave` AS projeto_palavrachave,
+     projeto.`duracaoProjetoProjeto` AS projeto_duracaoProjetoProjeto,
+     projeto.`dataInicio` AS projeto_dataInicio,
+     projeto.`dataTermino` AS projeto_dataTermino,
+     projeto.`valorFinanciamento` AS projeto_valorFinanciamento,
+     projeto.`dataFinanciamento` AS projeto_dataFinanciamento,
+     projeto.`programa` AS projeto_programa,
+     projeto.`agenciaFomento` AS projeto_agenciaFomento,
+     projeto.`quantidadeBolsa` AS projeto_quantidadeBolsa,
+     projeto.`instituicaoParceira` AS projeto_instituicaoParceira,
+     projeto.`coOrientador` AS projeto_coOrientador,
+     projeto.`grupoPesquisaCNPq` AS projeto_grupoPesquisaCNPq,
+     projeto.`tipobolsa_codigo` AS projeto_tipobolsa_codigo,
+     projeto.`edital_codigo` AS projeto_edital_codigo,
+     projeto.`orientador_codigo` AS projeto_orientador_codigo,
+     projeto.`subareaconhecimento_codigo` AS projeto_subareaconhecimento_codigo,
+     tipobolsa.`codigoTipoBolsa` AS tipobolsa_codigoTipoBolsa,
+     tipobolsa.`nomeTipoBolsa` AS tipobolsa_nomeTipoBolsa
+FROM
+     `tipobolsa` tipobolsa INNER JOIN `projeto` projeto ON tipobolsa.`codigoTipoBolsa` = projeto.`tipobolsa_codigo`
+
+where $P{codigoTipoBolsa} = projeto.tipobolsa_codigo]]>
+	</queryString>
+	<field name="projeto_codigoProjeto" class="java.lang.Integer"/>
+	<field name="projeto_nomeProjeto" class="java.lang.String"/>
+	<field name="projeto_cargaHoraria" class="java.lang.Integer"/>
+	<field name="projeto_palavrachave" class="java.lang.String"/>
+	<field name="projeto_duracaoProjetoProjeto" class="java.lang.Integer"/>
+	<field name="projeto_dataInicio" class="java.lang.String"/>
+	<field name="projeto_dataTermino" class="java.lang.String"/>
+	<field name="projeto_valorFinanciamento" class="java.lang.Float"/>
+	<field name="projeto_dataFinanciamento" class="java.lang.String"/>
+	<field name="projeto_programa" class="java.lang.String"/>
+	<field name="projeto_agenciaFomento" class="java.lang.String"/>
+	<field name="projeto_quantidadeBolsa" class="java.lang.Integer"/>
+	<field name="projeto_instituicaoParceira" class="java.lang.String"/>
+	<field name="projeto_coOrientador" class="java.lang.String"/>
+	<field name="projeto_grupoPesquisaCNPq" class="java.lang.String"/>
+	<field name="projeto_tipobolsa_codigo" class="java.lang.Integer"/>
+	<field name="projeto_edital_codigo" class="java.lang.Integer"/>
+	<field name="projeto_orientador_codigo" class="java.lang.Integer"/>
+	<field name="projeto_subareaconhecimento_codigo" class="java.lang.Integer"/>
+	<field name="tipobolsa_codigoTipoBolsa" class="java.lang.Integer"/>
+	<field name="tipobolsa_nomeTipoBolsa" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b81a70e7-877a-4400-b98c-68a79cebc78c"/>
+				<staticText>
+					<reportElement x="20" y="20" width="425" height="43" forecolor="#FFFFFF" uuid="f88ba800-afa0-4316-bc09-55bd26c6d1d6"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sistema de Controle de Projetos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="63" width="180" height="20" forecolor="#FFFFFF" uuid="64085838-74dd-46c1-bb8a-afdcba36cbca"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório Projeto]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5f74e2d5-8896-4525-9046-2efc37908580"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="71b8c254-e9c1-4387-a1a8-5ae15784227c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fe0123cd-7d8d-412c-a10b-c01415777e37"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projeto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="434036f5-58eb-45fc-8332-ef21d8e2f159"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código Tipo Bolsa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="120f34d1-eab7-4306-b3d0-d181f95db446"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Bolsa]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="7b1fb352-c664-4efe-9b7e-03916c1515b3"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="ba4f4945-137b-4000-a30f-382481967eed"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projeto_codigoProjeto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="301060a4-7313-4fda-a47d-36e894bce602"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projeto_nomeProjeto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="b7967e6a-7422-4d2b-b25d-1b687f61c35a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipobolsa_codigoTipoBolsa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="20b9975c-59fc-4555-92d4-4ebaae6e0626"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipobolsa_nomeTipoBolsa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="d36b3e49-447f-4119-87a3-8fee40b823a7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="69f2baff-1fb3-44e2-ab48-95a44ac421f4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="b438b56e-951f-42ef-acb1-27bd77f99015"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

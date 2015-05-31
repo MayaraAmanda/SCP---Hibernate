@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  
+  <schema-selection match-catalog="SCP"/>
+  <table-filter match-name="bolsista"/>
+  <table-filter match-name="campus"/>
+  <table-filter match-name="curso"/>
+  <table-filter match-name="edital"/>
+  <table-filter match-name="funcionario"/>
+  <table-filter match-name="instituicao"/>
+  <table-filter match-name="nucleo"/>
+  <table-filter match-name="orientador"/>
+  <table-filter match-name="pessoas"/>
+  <table-filter match-name="projeto"/>
+  <table-filter match-name="subareaconhecimento"/>
+  <table-filter match-name="tipobolsa"/>
+  <table-filter match-name="tipocurso"/>
+  
+  
+</hibernate-reverse-engineering>

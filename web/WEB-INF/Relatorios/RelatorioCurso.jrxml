@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioCurso" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3119c344-a350-4978-9438-d8c333f62b1f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigoTipoCurso" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     curso.`codigoCurso` AS curso_codigoCurso,
+     curso.`nomeCurso` AS curso_nomeCurso,
+     curso.`coordenador` AS curso_coordenador,
+     curso.`instituicao_codigo` AS curso_instituicao_codigo,
+     curso.`tipoCurso_codigo` AS curso_tipoCurso_codigo,
+     curso.`campus_codigo` AS curso_campus_codigo,
+     instituicao.`codigoInstituicao` AS instituicao_codigoInstituicao,
+     instituicao.`nomeInstituicao` AS instituicao_nomeInstituicao,
+     tipocurso.`codigoTipoCurso` AS tipocurso_codigoTipoCurso,
+     tipocurso.`nomeTipoCurso` AS tipocurso_nomeTipoCurso
+FROM
+     `instituicao` instituicao INNER JOIN `curso` curso ON instituicao.`codigoInstituicao` = curso.`instituicao_codigo`
+     INNER JOIN `tipocurso` tipocurso ON curso.`tipoCurso_codigo` = tipocurso.`codigoTipoCurso`
+
+WHERE $P{codigoTipoCurso} = tipoCurso.codigoTipoCurso]]>
+	</queryString>
+	<field name="curso_codigoCurso" class="java.lang.Integer"/>
+	<field name="curso_nomeCurso" class="java.lang.String"/>
+	<field name="curso_coordenador" class="java.lang.Integer"/>
+	<field name="curso_instituicao_codigo" class="java.lang.Integer"/>
+	<field name="curso_tipoCurso_codigo" class="java.lang.Integer"/>
+	<field name="curso_campus_codigo" class="java.lang.Integer"/>
+	<field name="instituicao_codigoInstituicao" class="java.lang.Integer"/>
+	<field name="instituicao_nomeInstituicao" class="java.lang.String"/>
+	<field name="tipocurso_codigoTipoCurso" class="java.lang.Integer"/>
+	<field name="tipocurso_nomeTipoCurso" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="9fdfaf04-2cdd-4739-9c12-954994fb8cc3"/>
+				<staticText>
+					<reportElement x="20" y="20" width="393" height="43" forecolor="#FFFFFF" uuid="2d0b6994-348d-4c8b-bf6a-6c1ff17ab3c8"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sistema de Controle de Projetos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="53" width="180" height="20" forecolor="#FFFFFF" uuid="635f4bb5-e007-4ca2-a895-e3be0f8b426b"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatorio Curso]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="ee3dd9cd-8e67-4107-b29b-ba8ede96465a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="91e51031-a8e5-4a4b-9116-7780f365c28e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="65e977e9-ef83-4c1e-9263-c0217deb2cfb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo Tipo Curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5613a9e9-8b8d-4a42-a259-8fe00c35a472"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="99e66b6b-bc6e-4845-85fb-9f0b7046f672"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instituicao]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="85ce04af-bf76-429d-a0a0-70c8d2a16b72"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="0268ee01-9292-4b35-86a7-f76bba250181"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{curso_nomeCurso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="1b9491ed-d7bb-4bdf-824a-755c167d3ef5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipocurso_codigoTipoCurso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="c90769d5-b6ab-4c13-b1b7-a9896d5a0165"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipocurso_nomeTipoCurso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="c3f51ae6-0804-463e-814b-73c92c293696"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instituicao_nomeInstituicao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="f4aa4408-d605-4845-9ae5-29e1540e6eb4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="edd44400-31dc-4087-ad90-74b5cf1ac937"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="f2458001-4d9e-4ab2-b7d4-a9db298ef44a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

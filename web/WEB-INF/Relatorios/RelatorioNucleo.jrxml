@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioNucleo" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bd6e636-18b4-419f-b686-e74877574c41">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigoCampus" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     nucleo.`codigoNucleo` AS nucleo_codigoNucleo,
+     nucleo.`nomeNucleo` AS nucleo_nomeNucleo,
+     nucleo.`campus_codigo` AS nucleo_campus_codigo,
+     campus.`codigoCampus` AS campus_codigoCampus,
+     campus.`nomeCampus` AS campus_nomeCampus,
+     campus.`instituicao_codigo` AS campus_instituicao_codigo
+FROM
+     `campus` campus INNER JOIN `nucleo` nucleo ON campus.`codigoCampus` = nucleo.`campus_codigo`
+
+WHERE $P{codigoCampus} = campus.codigoCampus]]>
+	</queryString>
+	<field name="nucleo_codigoNucleo" class="java.lang.Integer"/>
+	<field name="nucleo_nomeNucleo" class="java.lang.String"/>
+	<field name="nucleo_campus_codigo" class="java.lang.Integer"/>
+	<field name="campus_codigoCampus" class="java.lang.Integer"/>
+	<field name="campus_nomeCampus" class="java.lang.String"/>
+	<field name="campus_instituicao_codigo" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="53e92cc5-2364-4885-bac7-5cfd6a32a382"/>
+				<staticText>
+					<reportElement x="20" y="20" width="396" height="43" forecolor="#FFFFFF" uuid="3251e13f-3ced-41d2-9b39-f4ff90a991ee"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sistema de Controle de Projetos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="53" width="180" height="20" forecolor="#FFFFFF" uuid="74b9f739-4ab8-4046-832b-a7832135d68a"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatorio Nucleo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="64dc3463-e184-4053-9d09-2cc03486b51f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3230509f-281d-4e28-8091-1a1cb1d79600"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo Nucleo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="475d6fb2-389a-4e7a-a4ca-af4f4fb2ec79"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nucleo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="314d9c77-80da-494f-8062-d01d9c58a59a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo Campus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bc0029de-f381-451c-9063-0006e1e5faa8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="09f93f74-b5d6-4ead-8c0e-72b5311145a6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="5baa8cc8-d0de-44f1-bc84-08d5917fc368"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nucleo_codigoNucleo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="558b3b69-5bfd-4f62-9ba8-96989bf7f021"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nucleo_nomeNucleo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="61893693-9a0e-4433-9e0f-9efd45310c4f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus_codigoCampus}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="be5d5cfb-6219-4ce3-9287-fbfd736873e3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus_nomeCampus}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="ac746e2b-8c03-4237-8551-7b42ac73413b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="69778d9f-ec62-4f98-b9ba-4e537290c73f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e6bc233d-cb28-4042-beba-cb03877b54e4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
